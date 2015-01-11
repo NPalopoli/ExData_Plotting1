@@ -21,12 +21,19 @@ as.numeric.factor <- function(x) {  # convert factor to numeric
   as.numeric(levels(x))[x]
 }
 dataSet$Global_active_power <- as.numeric.factor(dataSet$Global_active_power)
+dataSet$Sub_metering_1 <- as.numeric.factor(dataSet$Sub_metering_1)
+dataSet$Sub_metering_2 <- as.numeric.factor(dataSet$Sub_metering_2)
+dataSet$Sub_metering_3 <- as.numeric.factor(dataSet$Sub_metering_3)
 
 ## OPTIONAL: Set system language
 Sys.setlocale("LC_TIME","C")
 #Sys.setlocale("LC_TIME","Spanish_Argentina.1252")
 
 ## Plot Global Active Power per hour
-png(filename="plot2.png", width=480, height=480)
-plot(dataSet$DateTime, dataSet$Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)", xlab = NA)
+png(filename="plot3.png", width=480, height=480)
+plot(dataSet$DateTime, dataSet$Sub_metering_1, ylab = "Energy sub metering", xlab = NA, type = "n")
+lines(dataSet$DateTime, dataSet$Sub_metering_1, type = "l", ylab = NA, xlab = NA, col = "black")
+lines(dataSet$DateTime, dataSet$Sub_metering_2, type = "l", ylab = NA, xlab = NA, col = "red")
+lines(dataSet$DateTime, dataSet$Sub_metering_3, type = "l", ylab = NA, xlab = NA, col = "blue")
+legend("topright", legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lty = 1, col = c("black","red","blue"))
 dev.off()
