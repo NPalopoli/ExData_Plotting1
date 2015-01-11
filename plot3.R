@@ -29,8 +29,8 @@ dataSet$Sub_metering_3 <- as.numeric.factor(dataSet$Sub_metering_3)
 Sys.setlocale("LC_TIME","C")
 #Sys.setlocale("LC_TIME","Spanish_Argentina.1252")
 
-## Plot Global Active Power per hour
-png(filename="plot3.png", width=480, height=480)
+## Plot Sub Meterings
+png(filename="plot3.png", width=480, height=480, bg = "transparent", type = "cairo")
 plot(dataSet$DateTime, dataSet$Sub_metering_1, ylab = "Energy sub metering", xlab = NA, type = "n")
 lines(dataSet$DateTime, dataSet$Sub_metering_1, type = "l", ylab = NA, xlab = NA, col = "black")
 lines(dataSet$DateTime, dataSet$Sub_metering_2, type = "l", ylab = NA, xlab = NA, col = "red")

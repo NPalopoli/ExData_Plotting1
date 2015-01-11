@@ -1,5 +1,5 @@
 ## Set working directory
-setwd("D://Coursera - Exploratory Data Analysis//W1")
+setwd("D://Coursera - Exploratory Data Analysis//W1//ExData_Plotting1")
 
 ## Download data
 if (!file.exists("household_power_consumption.zip")) {
@@ -32,7 +32,7 @@ Sys.setlocale("LC_TIME","C")
 #Sys.setlocale("LC_TIME","Spanish_Argentina.1252")
 
 ## Multipanel plot
-png(filename="plot4.png", width=480, height=480)
+png(filename="plot4.png", width=480, height=480, bg = "transparent", type = "cairo")
 par(mfrow=c(2,2))
 plot(dataSet$DateTime, dataSet$Global_active_power, type = "l", ylab = "Global Active Power", xlab = NA)
 plot(dataSet$DateTime, dataSet$Voltage, type = "l", xlab = "datetime", ylab = "Voltage")

@@ -1,5 +1,5 @@
 ## Set working directory
-setwd("D://Coursera - Exploratory Data Analysis//W1")
+setwd("D://Coursera - Exploratory Data Analysis//W1//ExData_Plotting1")
 
 ## Download data
 if (!file.exists("household_power_consumption.zip")) {
@@ -21,6 +21,6 @@ dataSet <- data[data$Date == "1/2/2007" | data$Date == "2/2/2007",]
 as.numeric.factor <- function(x) {  # convert factor to numeric
   as.numeric(levels(x))[x]
 }
-png(filename="plot1.png", width=480, height=480) 
+png(filename="plot1.png", width=480, height=480, bg = "transparent", type = "cairo")
 hist(as.numeric.factor(dataSet$Global_active_power), col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
 dev.off()
